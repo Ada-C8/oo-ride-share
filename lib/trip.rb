@@ -18,6 +18,7 @@ module RideShare
       CSV.open("./support/trips.csv", 'r').each do |line|
         # This will read in CSV and process them as trip instances.
       end
+      return trips
     end
 
     def self.find_driver_trips
