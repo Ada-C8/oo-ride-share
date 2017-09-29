@@ -12,8 +12,11 @@ module RideShare
     end
 
     def self.all
-      # This will read in CSV and process them as passenger objects.
-      # Figure out how to check phone numbers here due to extensions this may be difficult.
+      passengers = []
+      CSV.open("./support/riders.csv", 'r').each do |line|
+        # This will read in CSV and process them as passenger objects.
+        # Figure out how to check phone numbers here due to extensions this may be difficult.
+      end
     end
 
     def self.find passenger_id
