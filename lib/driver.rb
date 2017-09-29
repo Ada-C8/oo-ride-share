@@ -22,7 +22,7 @@ module RideShare
     end
 
     def self.find driver_id
-      all_drivers = Driver.all?
+      all_drivers = Driver.all
       return all_drivers.find
       # This will utilize self.all to create an array or array of hashes (still deciding) of driver instances.
     end
