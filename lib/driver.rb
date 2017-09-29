@@ -12,8 +12,13 @@ module RideShare
     end
 
     def self.all
-      # This will read in CSV and process them as driver objects.
+      drivers = []
+      CSV.open("./support/drvers.csv", 'r').each do |line|
+
+        # This will read in CSV and process them as driver objects.
+      end
     end
+    
 
     def self.find driver_id
       # This will utilize self.all to create an array or array of hashes (still deciding) of driver instances.
