@@ -1,7 +1,6 @@
 require_relative 'spec_helper'
 
-describe "Order Wave 2" do
-  describe "Order.all" do # <= Method, this is what we're testing (remember this).
+  describe "Driver.all" do # <= Method, this is what we're testing (remember this).
     before(:each) do
       # Setting up variable
       # Call method being tested
