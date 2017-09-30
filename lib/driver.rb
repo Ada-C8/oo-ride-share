@@ -13,7 +13,7 @@ module RideShare
 
     def self.all
       drivers = []
-      dcsv = CSV.open("./support/drivers.csv", 'r').each do |line|
+      dcsv = CSV.open("./support/drivers.csv", 'r')
         dcsv.each do |driver|
           drivers << Driver.new(driver[0].to_i, driver[1], driver[2])
         end

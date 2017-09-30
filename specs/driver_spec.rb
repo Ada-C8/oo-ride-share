@@ -1,32 +1,32 @@
 require_relative 'spec_helper'
 
-  describe "Driver.all" do # <= Method, this is what we're testing (remember this).
-    before(:each) do
-      # Setting up variable
-      # Call method being tested
-      @drivers = RideShare::Driver.all
-    end
+describe "Driver.all" do # <= Method, this is what we're testing (remember this).
+  before(:each) do
+    # Setting up variable
+    # Call method being tested
+    @drivers = RideShare::Driver.all
+  end
 
-    it "Returns an array of all drivers" do
-      @drivers.must_be_kind_of Array
-      @drivers.each do |driver|
-        driver.must_be_kind_of Rideshare::Driver
-      end
-    end
-
-    it "Returns the correct number of rows in CSV" do
-      @drivers.count.must_equal 100
-    end
-
-    it "Returns the first driver from the CSV file" do
-      driver = @drivers.last
-    end
-
-    it "Returns the last driver from the CSV file" do
-      driver = @drivers.last
+  it "Returns an array of all drivers" do
+    @drivers.must_be_kind_of Array
+    @drivers.each do |driver|
+      driver.must_be_kind_of Rideshare::Driver
     end
   end
+
+  it "Returns the correct number of rows in CSV" do
+    @drivers.count.must_equal 100
+  end
+
+  it "Returns the first driver from the CSV file" do
+    driver = @drivers.last
+  end
+
+  it "Returns the last driver from the CSV file" do
+    driver = @drivers.last
+  end
 end
+
 
 # Driver Necessities
 
