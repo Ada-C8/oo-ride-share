@@ -36,3 +36,20 @@ module RideShare
     end
   end
 end
+
+# Driver Necessities
+
+# Each driver should:
+
+# Have an ID, name, and vehicle identification number.
+# Each vehicle identification number should be a specific length (17 digits) to ensure it is a valid vehicle identification number.
+
+# Given a driver object, you should be able to:
+
+# Retrieve the list of trip instances that only this driver has taken.
+# Retrieve an average rating for that driver based on all trips taken.
+
+# You should be able to:
+
+# Retrieve all drivers from the CSV file.
+# Find a specific driver using their numeric ID.
