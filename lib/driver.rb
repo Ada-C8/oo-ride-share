@@ -14,29 +14,29 @@ module RideShare
     def self.all
       drivers = []
       dcsv = CSV.open("./support/drivers.csv", 'r')
-        dcsv.each do |driver|
-          drivers << Driver.new(driver[0].to_i, driver[1], driver[2])
-        end
+      dcsv.each do |driver|
+        drivers << Driver.new(driver[0].to_i, driver[1], driver[2])
       end
       return drivers
     end
-
-    def self.find driver_id
-      all_drivers = Driver.all
-      return all_drivers.find
-      # This will utilize self.all to create an array or array of hashes (still deciding) of driver instances.
-    end
-
-    def trips
-      # This will return the trips that the driver has completed.
-    end
-
-    def rating
-      # Provides average rating using the trips method.
-    end
+    # This will read in CSV and process them as driver objects.
   end
 end
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# def self.find passenger_id
+  # This will utilize self.all to create an array or array of hashes (still deciding) of passenger instances.
+# end
+
+# def trips
+#  This will return the trips that the driver has  completed, through the trip.rb file.
+# end
+#
+# def rating
+#   # Provides average rating using the trips method.
+# end
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Driver Necessities
 
 # Each driver should:

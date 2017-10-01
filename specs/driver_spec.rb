@@ -7,27 +7,52 @@ describe "Driver.all" do # <= Method, this is what we're testing (remember this)
     @drivers = RideShare::Driver.all
   end
 
-  it "Returns an array of all drivers" do
+  it "Returns an array of all drivers." do
     @drivers.must_be_kind_of Array
     @drivers.each do |driver|
-      driver.must_be_kind_of Rideshare::Driver
+      driver.must_be_kind_of RideShare::Driver
     end
   end
 
-  it "Returns the correct number of rows in CSV" do
+  it "Returns the correct number of rows in CSV." do
     @drivers.count.must_equal 100
   end
 
-  it "Returns the first driver from the CSV file" do
-    driver = @drivers.last
+  it "Returns the first driver from the CSV file." do
+    @drivers.first.driver_name.must_equal "Bernardo Prosacco"
   end
 
-  it "Returns the last driver from the CSV file" do
-    driver = @drivers.last
+  it "Returns the last driver from the CSV file." do
+    @drivers.last.driver_name.must_equal "Minnie Dach"
   end
 end
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# describe "Driver.find" do
+#   it "Returns an instance of a driver." do
+#
+#   end
 
+#   it "Raises an error if no driver is found." do
+#
+#   end
+# end
+
+
+# describe "Trips" do
+#   it "Returns all trips associated with each driver." do
+#
+#   end
+# end
+
+
+# describe "Rating" do
+#   it "Returns a float number." do
+#
+#   end
+# end
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Driver Necessities
 
 # Each driver should:
