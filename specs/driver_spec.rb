@@ -27,18 +27,21 @@ describe "Driver.all" do # <= Method, this is what we're testing (remember this)
   end
 end
 
+describe "Driver.find" do # <= Method, this is what we're testing (remember this).
+  it "Returns an instance of a driver." do
+    drivers = RideShare::Driver.find(8)
+    drivers.must_be_instance_of RideShare::Driver
+    drivers.driver_id.must_equal 8
+    drivers.driver_name.must_equal "Shania Olson"
+    drivers.vin.must_equal "KPH7TNNL14MDUFNF8"
+  end
+
+  it "Raises an error if no driver is found." do
+
+  end
+end
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# describe "Driver.find" do
-#   it "Returns an instance of a driver." do
-#
-#   end
-
-#   it "Raises an error if no driver is found." do
-#
-#   end
-# end
-
-
 # describe "Trips" do
 #   it "Returns all trips associated with each driver." do
 #

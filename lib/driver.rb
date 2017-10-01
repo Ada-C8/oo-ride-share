@@ -8,7 +8,7 @@ module RideShare
     def initialize driver_id, driver_name, vin
       @driver_id = driver_id
       @driver_name = driver_name
-      @vin = vin # Must be 17 characters long.
+      @vin = vin # Must be 17 characters long - String.
     end
 
     def self.all
@@ -20,14 +20,20 @@ module RideShare
       return drivers
     end
     # This will read in CSV and process them as driver objects.
+
+    def self.find(driver_id)
+      drivers = RideShare::Driver.all
+
+      drivers.each do |driver|
+        if driver.driver_id == driver_id
+          return driver
+        end
+      end
+    end
   end
 end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# def self.find passenger_id
-  # This will utilize self.all to create an array or array of hashes (still deciding) of passenger instances.
-# end
-
 # def trips
 #  This will return the trips that the driver has  completed, through the trip.rb file.
 # end

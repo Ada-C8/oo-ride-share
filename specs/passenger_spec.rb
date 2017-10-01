@@ -27,18 +27,21 @@ describe "Passenger.all" do # <= Method, this is what we're testing (remember th
   end
 end
 
+describe "Passenger.find" do # <= Method, this is what we're testing (remember this).
+  it "Returns an instance of a passenger." do
+    passengers = RideShare::Passenger.find(181)
+    passengers.must_be_instance_of RideShare::Passenger
+    passengers.passenger_id.must_equal 181
+    passengers.passenger_name.must_equal "Talia Kerluke"
+    passengers.passenger_phone_number.must_equal "947.490.0539"
+  end
+
+  it "Raises an error if no driver is found." do
+
+  end
+end
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# describe "Passenger.find" do
-#   it "Returns an instance of a passenger." do
-#
-#   end
-#
-#
-#   it "Returns nil if no passenger is found." do
-#
-#   end
-# end
-#
 # describe "Trips" do
 #   it "Returns all trips associated with each driver." do
 #

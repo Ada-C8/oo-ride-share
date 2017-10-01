@@ -17,20 +17,25 @@ module RideShare
       trips = []
       tcsv = CSV.open("./support/trips.csv", 'r')
       tcsv.each do |trip|
-        trips << Trip.new(trip[0].to_i, trip[1].to_i, trip[2].to_i, trip[3], trip[4])
+        trips << Trip.new(trip[0].to_i, trip[1].to_i, trip[2].to_i, trip[3], trip[4].to_f)
       end
       return trips
     end
     # This will read in CSV and process them as trip instances.
+
+    def self.find(trip_id)
+      trips = RideShare::Trip.all
+
+      trips.each do |trip|
+        if trip.trip_id == trip_id
+          return trip
+        end
+      end
+    end
   end
 end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#   def self.find_driver_trips
-#     # Using the self.all method this will return all trip instances for the driver.
-#   end
-#
 #   def self.find_passenger_trips
 #     # Using the self.all method this will return all trip instances for the passenger.
 #   end
@@ -59,4 +64,4 @@ end
 
 # Find all trip instances for a given driver ID.
 # Find all trip instances for a given passenger ID.
-# Retrieve all trips from the CSV file.
+# Retrieve all trips from the CSV file. <--- Done

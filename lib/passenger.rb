@@ -8,7 +8,7 @@ module RideShare
     def initialize passenger_id, passenger_name, passenger_phone_number
       @passenger_id = passenger_id
       @passenger_name = passenger_name
-      @passenger_phone_number = passenger_phone_number # Some numbers have extensions
+      @passenger_phone_number = passenger_phone_number # Some numbers have extensions - String.
     end
 
     def self.all
@@ -20,23 +20,27 @@ module RideShare
       return passengers
     end
     # This will read in CSV and process them as passenger objects.
+
+    def self.find(passenger_id)
+      passengers = RideShare::Passenger.all
+
+      passengers.each do |passenger|
+        if passenger.passenger_id == passenger_id
+          return passenger
+        end
+      end
+    end
   end
 end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  # Figure out how to check phone numbers here due to extensions this may be difficult.
+# def trips
+  # This will return the trips that the passenger has taken.
+# end
 
-  # def self.find passenger_id
-    # This will utilize self.all to create an array or array of hashes (still deciding) of passenger instances.
-  # end
-
-  # def trips
-    # This will return the trips that the passenger has taken.
-  # end
-
-  # def drivers
-    # Use trip method, connect with the driver_id.
-    # This will need to store the driver instances and then return them.
+# def drivers
+  # Use trip method, connect with the driver_id.
+  # This will need to store the driver instances and then return them.
   # end
 # end
 
