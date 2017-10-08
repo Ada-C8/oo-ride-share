@@ -30,21 +30,21 @@ module RideShare
         end
       end
     end
+
+    def passenger_trips
+      return Trip.find_passenger_trips @passenger_id
+      # This will return the trips that the passenger has taken.
+    end
+
+    def drivers
+      # Use trip method, connect with the driver_id.
+      # This will need to store the driver instances and then return them.
+    end
   end
 end
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# def trips
-  # This will return the trips that the passenger has taken.
-# end
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# def drivers
-  # Use trip method, connect with the driver_id.
-  # This will need to store the driver instances and then return them.
-  # end
-# end
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Each passenger should:
 
 # Have an ID, name and phone number

@@ -1,6 +1,10 @@
 require_relative 'spec_helper'
 
-describe "Trip.all" do # <= Method, this is what we're testing (remember this).
+describe "initialize" do
+
+end
+
+describe "Trip.all" do # <= Self.all method, this is what we're testing (remember this).
   before(:each) do
     # Setting up variable
     # Call method being tested
@@ -27,35 +31,56 @@ describe "Trip.all" do # <= Method, this is what we're testing (remember this).
   end
 end
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# describe "Trip.find" do
-#   it "Returns an instance of a trip." do
-#
-#   end
-#
-#
-#   it "Returns nil if no trip is found." do
-#
-#   end
-# end
-#
-# describe "Trips" do
-#   it "Returns all trips associated with each driver." do
-#
-#   end
-#
-#   it "Returns an array of trips." do
-#
-#   end
-# end
-#
-# describe "Rating" do
-#   it "Returns a number." do
-#
-#   end
-# end
+describe "find_driver_trips" do
+  it "Returns an instance of a trip." do
+
+  end
+
+
+  it "Returns nil if no trip is found." do
+
+  end
+end
+
+describe "find_passenger_trips" do
+  it "Returns all trips associated with each driver." do
+
+  end
+
+  it "Returns an array of trips." do
+
+  end
+
+  it "Must match the driver_id." do
+
+  end
+
+  it "Must match the passenger_id." do
+
+  end
+end
+
+describe "driver" do
+  it "returns an instance of a driver." do
+
+
+  end
+end
+
+describe "passenger" do
+  it "returns an instance of rider." do
+
+  end
+end
+
+describe "Rating" do
+  it "Returns a number." do
+
+  end
+end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # Each trip should:
 
 # Have an ID, passenger ID, a driver ID, date, rating.

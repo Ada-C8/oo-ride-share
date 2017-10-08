@@ -20,10 +20,14 @@ describe "Passenger.all" do # <= Method, this is what we're testing (remember th
 
   it "Returns the first passenger from the CSV file." do
     @passengers.first.passenger_name.must_equal "Nina Hintz Sr."
+    @passengers.first.passenger_id.must_equal 1
+    @passengers.first.passenger_phone_number.must_equal "560.815.3059"
   end
 
   it "Returns the last passenger from the CSV file." do
     @passengers.last.passenger_name.must_equal "Miss Isom Gleason"
+    @passengers.last.passenger_id.must_equal 300
+    @passengers.last.passenger_phone_number.must_equal "791-114-8423 x70188"
   end
 end
 
@@ -36,13 +40,12 @@ describe "Passenger.find" do # <= Method, this is what we're testing (remember t
     passengers.passenger_phone_number.must_equal "947.490.0539"
   end
 
-  it "Raises an error if no driver is found." do
+  it "Raises an error if no passenger is found." do
 
   end
 end
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# describe "Trips" do
+# describe "trips" do
 #   it "Returns all trips associated with each driver." do
 #
 #   end
@@ -52,13 +55,14 @@ end
 #   end
 # end
 #
-# describe "Drivers" do
-#   it "." do
+# describe "drivers" do
+#   it "Returns the list of all previous driver instances." do
 #
 #   end
 # end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # Each passenger should:
 
 # Have an ID, name and phone number

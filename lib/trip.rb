@@ -23,36 +23,49 @@ module RideShare
     end
     # This will read in CSV and process them as trip instances.
 
-    def self.find(trip_id)
+    def self.find_driver_trips(driver_id)
       trips = RideShare::Trip.all
 
       trips.each do |trip|
-        if trip.trip_id == trip_id
+        if trip.driver_id == driver_id
           return trip
         end
       end
     end
+
+    def self.find_passenger_trips(passenger_id)
+      trips = RideShare::Trip.all
+
+      trips.each do |trip|
+        if trip.passenger_id == passenger_id
+          return trip
+        end
+        # Using the self.all method this will return all trip instances for the passenger.
+      end
+    end
+
+    def driver
+      driver_info = Driver.find @driver_id
+      return driver_info
+      # Using .find, this will return associated instances for each driver ID.
+    end
+
+    def passenger
+      return Passenger.find @passenger_id
+      # Using .find, this will return associated instances for each passenger ID.
+    end
+
+    def rating
+      # Check to make sure there is a rating of 1 -5
+    end
   end
 end
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#   def self.find_passenger_trips
-#     # Using the self.all method this will return all trip instances for the passenger.
-#   end
-#
-#   def driver
-#     # Using .find, this will return associated instances for each driver ID.
-#   end
-#
-#   def passenger
-#     # Using .find, this will return associated instances for each passenger ID.
-#   end
-# end
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Each trip should:
-#
-# Have an ID, passenger ID, a driver ID, date, rating.
+
+# Have an ID, passenger ID, a driver ID, date, rating. - Instance variables completed.
 # Each rating should be within an acceptable range (1-5).
 
 # Given a trip object, you should be able to:

@@ -9,6 +9,8 @@ module RideShare
       @driver_id = driver_id
       @driver_name = driver_name
       @vin = vin # Must be 17 characters long - String.
+
+      raise ArgumentError.new("VIN is invalid.") if vin.length != 17
     end
 
     def self.all
@@ -30,19 +32,26 @@ module RideShare
         end
       end
     end
+
+    # def trips
+    #   return Trip.find_driver_trips @driver_id
+    #   #  This will return the trips that the driver has  completed, through the trip.rb file.
+    # end
+    #
+    # def average_rating
+    #   total = 0.0
+    #   trips = self.trips
+    #   trip_count = trips.length
+    #   trips.each do |trip|
+    #     total += trip.rating
+    #   end
+    #   return "#{(total / trip_count).round(2)}"
+    # end
   end
 end
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# def trips
-#  This will return the trips that the driver has  completed, through the trip.rb file.
-# end
-#
-# def rating
-#   # Provides average rating using the trips method.
-# end
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Driver Necessities
 
 # Each driver should:
