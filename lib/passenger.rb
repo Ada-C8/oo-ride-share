@@ -1,4 +1,5 @@
 require 'csv'
+require_relative 'trip'
 
 module RideShare
   class Passenger
@@ -31,18 +32,20 @@ module RideShare
       end
     end
 
-    def passenger_trips
-      return Trip.find_passenger_trips @passenger_id
-      # This will return the trips that the passenger has taken.
-    end
-
-    def drivers
+    def self.driver_list(passenger_id)
+      all_drivers = []
+      passenger_trips = Trip.all_passenger_trips(passenger_id)
+      passenger_trips.each do |trip|
+        all_drivers << trip.driver_id
+      end
+      return all_drivers
       # Use trip method, connect with the driver_id.
       # This will need to store the driver instances and then return them.
+      # So for a passenger get a list of all the drivers that passenger has had.
     end
   end
 end
-
+p RideShare::Passenger.driver_list(1)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Each passenger should:

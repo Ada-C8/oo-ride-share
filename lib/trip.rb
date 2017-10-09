@@ -44,32 +44,35 @@ module RideShare
     end
 
 
-    # p all.select{ |trip| trip.driver_id  }
-
-
-    # def self.all_passenger_trips(passenger_id)
-    #   all
-    #   RideShare::Trip.all.select{ |trip| trip.passenger_id == id }
-    # end
-    # Select enumerable - https://ruby-doc.org/core-2.4.2/Enumerable.html#method-i-select
-
-    # def driver
-    #   driver_info = Driver.find @driver_id
-    #   return driver_info
-    #   # Using .find, this will return associated instances for each driver ID.
-    # end
-    #
-    # def passenger
-    #   return Passenger.find @passenger_id
-    #   # Using .find, this will return associated instances for each passenger ID.
-    # end
-
-    # def rating
-    #   # Check to make sure there is a rating of 1 -5
-    # end
   end
 end
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# So for a passenger get a list of all the drivers that passenger has had.
+#
+# So they’ll need to get a list of trips and then find each driver for each trip.
+
+# p all.select{ |trip| trip.driver_id  }
+
+
+# def self.all_passenger_trips(passenger_id)
+#   all
+#   RideShare::Trip.all.select{ |trip| trip.passenger_id == id }
+# end
+# Select enumerable - https://ruby-doc.org/core-2.4.2/Enumerable.html#method-i-select
+
+# def driver
+#   driver_info = Driver.find @driver_id
+#   return driver_info
+#   # Using .find, this will return associated instances for each driver ID.
+# end
+#
+# def passenger
+#   return Passenger.find @passenger_id
+#   # Using .find, this will return associated instances for each passenger ID.
+# end
+
+
+
 
 # Each trip should:
 

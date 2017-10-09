@@ -42,11 +42,9 @@ module RideShare
         total += trip.rating
       end
       return "#{(total / trip_count).round(2)}"
-
     end
   end
 end
-
 p RideShare::Driver.average_rating(1)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
