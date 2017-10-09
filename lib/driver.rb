@@ -1,4 +1,5 @@
 require 'csv'
+require_relative 'trip'
 
 module RideShare
   class Driver
@@ -33,24 +34,26 @@ module RideShare
       end
     end
 
-    def driver_trips
-      return Trip.find_driver_trips @driver_id
-      #  This will return the trips that the driver has  completed, through the trip.rb file.
+    def self.average_rating(driver_id)
+      total = 0.0
+      driver_trips = Trip.all_driver_trips(driver_id)
+      trip_count = driver_trips.length
+      driver_trips.each do |trip|
+        total += trip.rating
+      end
+      return "#{(total / trip_count).round(2)}"
+
     end
-    #
-    # def average_rating
-    #   total = 0.0
-    #   trips = self.trips
-    #   trip_count = trips.length
-    #   trips.each do |trip|
-    #     total += trip.rating
-    #   end
-    #   return "#{(total / trip_count).round(2)}"
-    # end
   end
 end
 
+p RideShare::Driver.average_rating(1)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# def driver_trips
+#   return Trip.all_driver_trips @driver_id
+#   #  This will return the trips that the driver has  completed, through the trip.rb file.
+# end
 
 # Driver Necessities
 
