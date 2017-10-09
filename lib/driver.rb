@@ -33,10 +33,10 @@ module RideShare
       end
     end
 
-    # def trips
-    #   return Trip.find_driver_trips @driver_id
-    #   #  This will return the trips that the driver has  completed, through the trip.rb file.
-    # end
+    def driver_trips
+      return Trip.find_driver_trips @driver_id
+      #  This will return the trips that the driver has  completed, through the trip.rb file.
+    end
     #
     # def average_rating
     #   total = 0.0

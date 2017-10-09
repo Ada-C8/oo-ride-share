@@ -5,7 +5,7 @@ module RideShare
 
     attr_reader :trip_id, :passenger_id, :driver_id, :date, :rating
 
-    def initialize trip_id, passenger_id, driver_id, date, rating
+    def initialize trip_id, driver_id, passenger_id, date, rating
       @trip_id = trip_id
       @passenger_id = passenger_id
       @driver_id = driver_id
@@ -23,44 +23,52 @@ module RideShare
     end
     # This will read in CSV and process them as trip instances.
 
-    def self.find_driver_trips(driver_id)
-      trips = RideShare::Trip.all
-
-      trips.each do |trip|
+    def self.all_driver_trips(driver_id)
+      driver_trips = []
+      all.each do |trip|
         if trip.driver_id == driver_id
-          return trip
+          driver_trips << trip
         end
       end
+      return driver_trips
     end
 
-    def self.find_passenger_trips(passenger_id)
-      trips = RideShare::Trip.all
-
-      trips.each do |trip|
+    def self.all_passenger_trips(passenger_id)
+      passenger_trips = []
+      all.each do |trip|
         if trip.passenger_id == passenger_id
-          return trip
+          passenger_trips << trip
         end
-        # Using the self.all method this will return all trip instances for the passenger.
       end
+      return passenger_trips
     end
 
-    def driver
-      driver_info = Driver.find @driver_id
-      return driver_info
-      # Using .find, this will return associated instances for each driver ID.
-    end
 
-    def passenger
-      return Passenger.find @passenger_id
-      # Using .find, this will return associated instances for each passenger ID.
-    end
+    # p all.select{ |trip| trip.driver_id  }
 
-    def rating
-      # Check to make sure there is a rating of 1 -5
-    end
+
+    # def self.all_passenger_trips(passenger_id)
+    #   all
+    #   RideShare::Trip.all.select{ |trip| trip.passenger_id == id }
+    # end
+    # Select enumerable - https://ruby-doc.org/core-2.4.2/Enumerable.html#method-i-select
+
+    # def driver
+    #   driver_info = Driver.find @driver_id
+    #   return driver_info
+    #   # Using .find, this will return associated instances for each driver ID.
+    # end
+    #
+    # def passenger
+    #   return Passenger.find @passenger_id
+    #   # Using .find, this will return associated instances for each passenger ID.
+    # end
+
+    # def rating
+    #   # Check to make sure there is a rating of 1 -5
+    # end
   end
 end
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Each trip should:

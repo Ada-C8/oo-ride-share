@@ -47,9 +47,9 @@ describe "initialize" do
       drivers.vin.must_equal "KPH7TNNL14MDUFNF8"
     end
 
-    it "Raises an error if no driver is found." do
-
-    end
+    # it "Raises an error if no driver is found." do
+    #
+    # end
 
     # describe "Trips" do
     #   it "Returns all trips associated with each driver." do
