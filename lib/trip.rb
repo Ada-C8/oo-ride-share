@@ -24,28 +24,37 @@ module RideShare
     # This will read in CSV and process them as trip instances.
 
     def self.all_driver_trips(driver_id)
-      driver_trips = []
-      all.each do |trip|
-        if trip.driver_id == driver_id
-          driver_trips << trip
-        end
-      end
-      return driver_trips
+      # driver_trips = []
+      return all.select {|trip| trip if trip.driver_id == driver_id}
+      # return driver_trips
+
+
+
+      # driver_trips = []
+      # all.each do |trip|
+      #   if trip.driver_id == driver_id
+      #     driver_trips << trip
+      #   end
+      # end
+      # return driver_trips
     end
 
     def self.all_passenger_trips(passenger_id)
-      passenger_trips = []
-      all.each do |trip|
-        if trip.passenger_id == passenger_id
-          passenger_trips << trip
-        end
-      end
-      return passenger_trips
+      return all.select {|trip| trip if trip.passenger_id == passenger_id}
+
+
+      # passenger_trips = []
+      # all.each do |trip|
+      #   if trip.passenger_id == passenger_id
+      #     passenger_trips << trip
+      #   end
+      # end
+      # return passenger_trips
     end
-
-
   end
 end
+
+p RideShare::Trip.all_passenger_trips(1)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # So for a passenger get a list of all the drivers that passenger has had.
 #

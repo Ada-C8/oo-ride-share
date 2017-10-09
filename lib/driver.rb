@@ -26,7 +26,6 @@ module RideShare
 
     def self.find(driver_id)
       drivers = RideShare::Driver.all
-
       drivers.each do |driver|
         if driver.driver_id == driver_id
           return driver
@@ -35,16 +34,21 @@ module RideShare
     end
 
     def self.average_rating(driver_id)
-      total = 0.0
       driver_trips = Trip.all_driver_trips(driver_id)
-      trip_count = driver_trips.length
-      driver_trips.each do |trip|
-        total += trip.rating
-      end
-      return "#{(total / trip_count).round(2)}"
+      return (driver_trips.map(&:rating).inject(0, &:+)/driver_trips.length).round(2)
+      # enumerable version
+
+      # total = 0.0
+      # driver_trips = Trip.all_driver_trips(driver_id)
+      # trip_count = driver_trips.length
+      # driver_trips.each do |trip|
+      #   total += trip.rating
+      # end
+      # return "#{(total / trip_count).round(2)}"
     end
   end
 end
+
 p RideShare::Driver.average_rating(1)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
