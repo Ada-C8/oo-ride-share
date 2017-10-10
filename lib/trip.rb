@@ -59,7 +59,7 @@ module RideShare
   end
 end
 
-p RideShare::Trip.all_passenger_trips(1)
+# p RideShare::Trip.all_passenger_trips(1)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # So for a passenger get a list of all the drivers that passenger has had.
 #

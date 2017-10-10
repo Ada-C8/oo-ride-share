@@ -40,20 +40,20 @@ module RideShare
       end
       all_driver_objects = all_drivers.map {|id| Driver.find(id)}
       return all_driver_objects
+    end
 
-      # Use trip method, connect with the driver_id.
-      # This will need to store the driver instances and then return them.
-      # So for a passenger get a list of all the drivers that passenger has had.
-      
-      def passenger_trips(passenger_id)
-        return Trip.all_passenger_trips(passenger_id)
-      end
+    # Use trip method, connect with the driver_id.
+    # This will need to store the driver instances and then return them.
+    # So for a passenger get a list of all the drivers that passenger has had.
+
+    def passenger_trips(passenger_id)
+      return Trip.all_passenger_trips(passenger_id)
     end
   end
 end
 
 
-p RideShare::Passenger.driver_list(1)
+# p RideShare::Passenger.driver_list(1)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Each passenger should:
