@@ -40,7 +40,7 @@ describe "Passenger.find" do # <= Method, this is what we're testing (remember t
     passengers.passenger_phone_number.must_equal "947.490.0539"
   end
 
-# describe "trips" do
+# describe "passenger_trips" do
 #   it "Returns all trips associated with each driver." do
 #
 #   end
@@ -50,7 +50,7 @@ describe "Passenger.find" do # <= Method, this is what we're testing (remember t
 #   end
 # end
 #
-# describe "drivers" do
+# describe "Passenger.driver_list" do
 #   it "Returns the list of all previous driver instances." do
 #
 #   end

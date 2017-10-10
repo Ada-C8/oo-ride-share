@@ -44,6 +44,7 @@ module RideShare
       # Use trip method, connect with the driver_id.
       # This will need to store the driver instances and then return them.
       # So for a passenger get a list of all the drivers that passenger has had.
+      
       def passenger_trips(passenger_id)
         return Trip.all_passenger_trips(passenger_id)
       end

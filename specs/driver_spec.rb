@@ -47,12 +47,6 @@ describe "initialize" do
       drivers.vin.must_equal "KPH7TNNL14MDUFNF8"
     end
 
-    # describe "Trips" do
-    #   it "Returns all trips associated with each driver." do
-    #
-    #   end
-    # end
-
     describe "Driver.average_rating" do
       it "Returns a number." do
         drivers = RideShare::Driver.find(1)
@@ -60,6 +54,12 @@ describe "initialize" do
         drivers.average_rating.must_be :>=, 1
       end
     end
+
+    # describe "driver_trips" do
+    #   it "Returns all trips associated with each driver." do
+    #
+    #   end
+    # end
   end
 end
 

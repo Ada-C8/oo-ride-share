@@ -46,6 +46,16 @@ module RideShare
       # end
       # return passenger_trips
     end
+
+    def driver(driver_id)
+      driver_info = Diver.find(driver_id)
+      return driver_info
+    end
+
+    def passenger(passenger_id)
+      passenger_info = Passenger.find(passenger_id)
+      return passenger_info
+    end
   end
 end
 
