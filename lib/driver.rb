@@ -46,6 +46,10 @@ module RideShare
       # end
       # return "#{(total / trip_count).round(2)}"
     end
+
+    def driver_trips(driver_id)
+      return Trip.all_driver_trips(driver_id)
+    end
   end
 end
 

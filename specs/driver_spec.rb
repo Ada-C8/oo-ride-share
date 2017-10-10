@@ -47,32 +47,23 @@ describe "initialize" do
       drivers.vin.must_equal "KPH7TNNL14MDUFNF8"
     end
 
-    # it "Raises an error if no driver is found." do
-    #
-    # end
-
     # describe "Trips" do
     #   it "Returns all trips associated with each driver." do
     #
     #   end
-    #
-    #   it "Returns an empty Array if no trips are found." do
-    #
-    #   end
     # end
 
-
-    # describe "average_rating" do
-    #   it "Returns a number." do
-    #     drivers = RideShare::Driver.find(8)
-    #     drivers.average_rating.must_be_instance_of Float
-    #     drivers.average_rating.must_be :<=, 5
-    #     drivers.average_rating.must_be :>=, 1
-    #   end
-    # end
+    describe "Driver.average_rating" do
+      it "Returns a number." do
+        drivers = RideShare::Driver.find(1)
+        drivers.average_rating.must_be :<=, 5
+        drivers.average_rating.must_be :>=, 1
+      end
+    end
   end
 end
 
+# drivers.average_rating.must_be_instance_of Float
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Driver Necessities

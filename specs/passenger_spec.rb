@@ -40,11 +40,6 @@ describe "Passenger.find" do # <= Method, this is what we're testing (remember t
     passengers.passenger_phone_number.must_equal "947.490.0539"
   end
 
-  # it "Raises an error if no passenger is found." do
-  #
-  # end
-end
-
 # describe "trips" do
 #   it "Returns all trips associated with each driver." do
 #
@@ -60,6 +55,7 @@ end
 #
 #   end
 # end
+end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
