@@ -9,7 +9,7 @@ module RideShare
     def initialize passenger_id, passenger_name, passenger_phone_number
       @passenger_id = passenger_id
       @passenger_name = passenger_name
-      @passenger_phone_number = passenger_phone_number.
+      @passenger_phone_number = passenger_phone_number
     end
 
     def self.all
@@ -23,6 +23,7 @@ module RideShare
 
     def self.find(passenger_id)
       passengers = RideShare::Passenger.all
+
       passengers.each do |passenger|
         if passenger.passenger_id == passenger_id
           return passenger
