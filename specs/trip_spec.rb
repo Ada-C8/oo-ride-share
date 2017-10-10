@@ -35,52 +35,46 @@ describe "Trip.all_driver_trips" do
   it "Returns an array of driver trips by driver_id" do
     RideShare::Trip.all_driver_trips(1).length.must_equal 9
   end
+
+  it "Must match the driver_id." do
+    all_driver_trips = RideShare::Trip.all_driver_trips 1
+    all_driver_trips.length.must_equal 9
+    all_driver_trips.each do |driver|
+      driver.driver_id.must_equal 1
+    end
+  end
 end
-
-# it "Returns nil if no trip is found." do
-#
-# end
-
-
 
 describe "Trip.all_passenger_trips" do
   it "Returns an array of passenger trips by passenger_id." do
     RideShare::Trip.all_passenger_trips(1).length.must_equal 2
   end
+
+  it "Must match the passenger_id." do
+    all_passenger_trips = RideShare::Trip.all_passenger_trips 1
+    all_passenger_trips.length.must_equal 2
+    all_passenger_trips.each do |passenger|
+      passenger.passenger_id.must_equal 1
+    end
+  end
 end
 
-#   it "Returns an array of trips." do
-#
-#   end
-#
-#   it "Must match the driver_id." do
-#
-#   end
-#
-#   it "Must match the passenger_id." do
-#
-#   end
-# end
-#
-# describe "driver" do
-#   it "returns an instance of a driver." do
-#
-#
-#   end
-# end
-#
-# describe "passenger" do
-#   it "returns an instance of rider." do
-#
-#   end
-# end
-#
-# describe "Rating" do
-#   it "Returns a number." do
-#
-#   end
+describe "driver" do
+  it "returns an instance of a driver." do
+    # driver = driver(1)
+    # trip.driver.must_be_instance_of RideShare::Driver
+  end
+end
 
+# Undefined.
 
+describe "passenger" do
+  it "returns an instance of rider." do
+    # passenger = passenger(1)
+    # trip.passenger.must_be_instance_of RideShare::Passenger
+  end
+end
+# Undefined
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Each trip should:

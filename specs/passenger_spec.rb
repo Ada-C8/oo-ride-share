@@ -39,22 +39,21 @@ describe "Passenger.find" do # <= Method, this is what we're testing (remember t
     passengers.passenger_name.must_equal "Talia Kerluke"
     passengers.passenger_phone_number.must_equal "947.490.0539"
   end
+end
 
-# describe "passenger_trips" do
-#   it "Returns all trips associated with each driver." do
-#
-#   end
-#
-#   it "Returns an array of trips." do
-#
-#   end
-# end
-#
-# describe "Passenger.driver_list" do
-#   it "Returns the list of all previous driver instances." do
-#
-#   end
-# end
+describe "Passenger.driver_list" do
+  it "Returns the list of all previous driver instances." do
+    # @passengers = all_passenger_trips(1)
+    # all_passenger_trips.driver_trips.length.must_equal 2
+
+    # Undefined method, once again.  Not sure what it is aside from not getting enough breaks to pick out the obvious.  Also, again, via another method I know these are returning and doing what I want, it's a matter of the testing.
+  end
+end
+
+describe "passenger_trips" do
+  it "Returns all trips associated with each driver." do
+# Unsure the best way to test for this, do I pull a passenger_id and then see if the number of trips matches or the driver ids match to that passenger id for those trips.
+  end
 end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
