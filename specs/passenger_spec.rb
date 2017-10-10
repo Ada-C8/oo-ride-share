@@ -42,7 +42,19 @@ describe "Passenger.find" do # <= Method, this is what we're testing (remember t
 end
 
 describe "Passenger.driver_list" do
+  before(:each) do
+    # Setting up variable
+    # Call method being tested
+    @passenger = RideShare::Passenger.find(1)
+    @driver_list = RideShare::Passenger.driver_list(1)
+  end
+
+  it "Returns an array." do
+    @driver_list.must_be_instance_of Array
+  end
+
   it "Returns the list of all previous driver instances." do
+    @driver_list.length.must_equal 2
     # @passengers = all_passenger_trips(1)
     # all_passenger_trips.driver_trips.length.must_equal 2
 
@@ -51,10 +63,28 @@ describe "Passenger.driver_list" do
 end
 
 describe "passenger_trips" do
-  it "Returns all trips associated with each driver." do
-    # Unsure the best way to test for this, do I pull a passenger_id and then see if the number of trips matches or the driver ids match to that passenger id for those trips.
+  before(:each) do
+    # Setting up variable
+    # Call method being tested
+    @passenger = RideShare::Passenger.find(1)
+    @passenger_trips = @passenger.passenger_trips(1)
+  end
+
+  it "Returns an array." do
+    @passenger_trips.must_be_instance_of Array
+  end
+
+  it "Returns trip objects." do
+    @passenger_trips.each do |trip|
+      trip.must_be_kind_of RideShare::Trip
+    end
+  end
+
+  it "Returns the correct number of trips." do
+    @passenger_trips.length.must_equal 2
   end
 end
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
