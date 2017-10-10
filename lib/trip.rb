@@ -27,9 +27,6 @@ module RideShare
       # driver_trips = []
       return all.select {|trip| trip if trip.driver_id == driver_id}
       # return driver_trips
-
-
-
       # driver_trips = []
       # all.each do |trip|
       #   if trip.driver_id == driver_id

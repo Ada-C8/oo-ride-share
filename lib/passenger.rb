@@ -38,7 +38,8 @@ module RideShare
       passenger_trips.each do |trip|
         all_drivers << trip.driver_id
       end
-      return all_drivers
+      all_driver_objects = all_drivers.map {|id| Driver.find(id)}
+      return all_driver_objects
       # Use trip method, connect with the driver_id.
       # This will need to store the driver instances and then return them.
       # So for a passenger get a list of all the drivers that passenger has had.
