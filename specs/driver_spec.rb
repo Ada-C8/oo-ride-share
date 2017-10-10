@@ -56,8 +56,14 @@ describe "Driver.find" do
 end
 
 describe "average_rating" do
-  it "Returns a float." do
+  before(:each) do
+    # Setting up variable
+    # Call method being tested
+    @driver = RideShare::Driver.find(1)
+  end
 
+  it "Returns a float." do
+    @driver.average_rating(1).must_be_instance_of Float
     # driver_1 = RideShare::Driver.all.average_rating(1)
     # driver_1.average_rating.must_be :<=, 5
     # driver_1.average_rating.must_be :>=, 1
@@ -78,21 +84,50 @@ describe "average_rating" do
 
     # This method DOES work, tested with print BUT can't get any test to work no matter how many versions I have managed to make generally undefined method or wrong argument.
   end
+
+  it "Returns an average rating between 1 and 5" do
+    @driver.average_rating(1).must_be :<=, 5
+    @driver.average_rating(1).must_be :>=, 1
+  end
 end
 
 describe "driver_trips" do
-  it "Returns all trips associated with each driver." do
-    # driver = driver_id(1)
-    # driver.all_driver_trips.must_be_instance_of Array
-    # driver.trips.each do |trip|
-    #   trip.all_driver_trips.must_be_instance_of RideShare::Trip
+  before(:each) do
+    # Setting up variable
+    # Call method being tested
+    @driver = RideShare::Driver.find(1)
+    @driver_trips = @driver.driver_trips(1)
+  end
 
-      # No method error. Really burnt out at this point and am probably making VERY obvious mistakes.  Been working on this for days.
+  it "Must be an instance of an array." do
+    @driver_trips.must_be_instance_of Array
+  end
 
-      # Once again, I know via print that this method does work, I just seem to be not able to properly define methods and I think it's from not having proper breaks to try and get this done.  It's likely obvious and I'm sorry.
-    
+  it "Returns trip objects." do
+    @driver_trips.each do |trip|
+      trip.must_be_kind_of RideShare::Trip
+    end
+  end
+
+  it "Returns the correct number of trips." do
+    @driver_trips.length.must_equal 9
   end
 end
+
+
+
+
+# driver = @drivers.first
+# driver.driver_trips(driver.driver_id).must_be_instance_of Array
+# driver.trips.each do |trip|
+#   trip.driver_trips.must_be_instance_of RideShare::Trip
+
+# No method error. Really burnt out at this point and am probably making VERY obvious mistakes.  Been working on this for days.
+
+# Once again, I know via print that this method does work, I just seem to be not able to properly define methods and I think it's from not having proper breaks to try and get this done.  It's likely obvious and I'm sorry.
+
+
+
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

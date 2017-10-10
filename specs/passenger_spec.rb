@@ -52,7 +52,7 @@ end
 
 describe "passenger_trips" do
   it "Returns all trips associated with each driver." do
-# Unsure the best way to test for this, do I pull a passenger_id and then see if the number of trips matches or the driver ids match to that passenger id for those trips.
+    # Unsure the best way to test for this, do I pull a passenger_id and then see if the number of trips matches or the driver ids match to that passenger id for those trips.
   end
 end
 

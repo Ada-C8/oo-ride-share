@@ -1,4 +1,6 @@
 require 'csv'
+require_relative 'passenger'
+require_relative 'driver'
 
 module RideShare
   class Trip
