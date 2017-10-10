@@ -9,7 +9,7 @@ module RideShare
     def initialize driver_id, driver_name, vin
       @driver_id = driver_id
       @driver_name = driver_name
-      @vin = vin # Must be 17 characters long - String.
+      @vin = vin
 
       raise ArgumentError.new("VIN is invalid.") if vin.length != 17
     end
@@ -22,7 +22,6 @@ module RideShare
       end
       return drivers
     end
-    # This will read in CSV and process them as driver objects.
 
     def self.find(driver_id)
       drivers = RideShare::Driver.all
@@ -36,15 +35,6 @@ module RideShare
     def average_rating(driver_id)
       driver_trips = driver_trips(driver_id)
       return (driver_trips.map(&:rating).inject(0, &:+)/driver_trips.length).round(2)
-      # enumerable version
-
-      # total = 0.0
-      # driver_trips = Trip.all_driver_trips(driver_id)
-      # trip_count = driver_trips.length
-      # driver_trips.each do |trip|
-      #   total += trip.rating
-      # end
-      # return "#{(total / trip_count).round(2)}"
     end
 
     def driver_trips(driver_id)
@@ -52,28 +42,3 @@ module RideShare
     end
   end
 end
-
-# p RideShare::Driver.average_rating(1)
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# def driver_trips
-#   return Trip.all_driver_trips @driver_id
-#   #  This will return the trips that the driver has  completed, through the trip.rb file.
-# end
-
-# Driver Necessities
-
-# Each driver should:
-
-# Have an ID, name, and vehicle identification number.
-# Each vehicle identification number should be a specific length (17 digits) to ensure it is a valid vehicle identification number.
-
-# Given a driver object, you should be able to:
-
-# Retrieve the list of trip instances that only this driver has taken.
-# Retrieve an average rating for that driver based on all trips taken.
-
-# You should be able to:
-
-# Retrieve all drivers from the CSV file.
-# Find a specific driver using their numeric ID.

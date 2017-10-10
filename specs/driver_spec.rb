@@ -8,10 +8,8 @@ describe "initialize" do
   end
 end
 
-describe "Driver.all" do # <= Method, this is what we're testing (remember this).
+describe "Driver.all" do
   before(:each) do
-    # Setting up variable
-    # Call method being tested
     @drivers = RideShare::Driver.all
   end
 
@@ -57,32 +55,11 @@ end
 
 describe "average_rating" do
   before(:each) do
-    # Setting up variable
-    # Call method being tested
     @driver = RideShare::Driver.find(1)
   end
 
   it "Returns a float." do
     @driver.average_rating(1).must_be_instance_of Float
-    # driver_1 = RideShare::Driver.all.average_rating(1)
-    # driver_1.average_rating.must_be :<=, 5
-    # driver_1.average_rating.must_be :>=, 1
-
-    # driver_1 = RideShare::Driver.average_rating(1)
-    # driver_1.average_rating.must_be :<=, 5
-    # driver_1.average_rating.must_be :>=, 1
-    # ^^  Errors with undefined method
-
-    # @drivers.driver_id.must_equal 1
-    # @drivers.average_rating.must_be :<=, 5
-    # @drivers.average_rating.must_be :>=, 1
-
-    # driver_trips = RideShare::Driver.find(1)
-    # # drivers.average_rating.must_be_instance_of Float
-    # driver_trips.average_rating.must_be :<=, 5
-    # driver_trips.average_rating.must_be :>=, 1
-
-    # This method DOES work, tested with print BUT can't get any test to work no matter how many versions I have managed to make generally undefined method or wrong argument.
   end
 
   it "Returns an average rating between 1 and 5" do
@@ -93,8 +70,6 @@ end
 
 describe "driver_trips" do
   before(:each) do
-    # Setting up variable
-    # Call method being tested
     @driver = RideShare::Driver.find(1)
     @driver_trips = @driver.driver_trips(1)
   end
@@ -113,38 +88,3 @@ describe "driver_trips" do
     @driver_trips.length.must_equal 9
   end
 end
-
-
-
-
-# driver = @drivers.first
-# driver.driver_trips(driver.driver_id).must_be_instance_of Array
-# driver.trips.each do |trip|
-#   trip.driver_trips.must_be_instance_of RideShare::Trip
-
-# No method error. Really burnt out at this point and am probably making VERY obvious mistakes.  Been working on this for days.
-
-# Once again, I know via print that this method does work, I just seem to be not able to properly define methods and I think it's from not having proper breaks to try and get this done.  It's likely obvious and I'm sorry.
-
-
-
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# Driver Necessities
-
-# Each driver should:
-
-# Have an ID, name, and vehicle identification number.
-# Each vehicle identification number should be a specific length (17 digits) to ensure it is a valid vehicle identification number.
-
-# Given a driver object, you should be able to:
-
-# Retrieve the list of trip instances that only this driver has taken.
-# Retrieve an average rating for that driver based on all trips taken.
-
-# You should be able to:
-
-# Retrieve all drivers from the CSV file.
-# Find a specific driver using their numeric ID.

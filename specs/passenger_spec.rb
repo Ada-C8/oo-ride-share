@@ -1,9 +1,7 @@
 require_relative 'spec_helper'
 
-describe "Passenger.all" do # <= Method, this is what we're testing (remember this).
+describe "Passenger.all" do
   before(:each) do
-    # Setting up variable
-    # Call method being tested
     @passengers = RideShare::Passenger.all
   end
 
@@ -31,7 +29,7 @@ describe "Passenger.all" do # <= Method, this is what we're testing (remember th
   end
 end
 
-describe "Passenger.find" do # <= Method, this is what we're testing (remember this).
+describe "Passenger.find" do
   it "Returns an instance of a passenger." do
     passengers = RideShare::Passenger.find(181)
     passengers.must_be_instance_of RideShare::Passenger
@@ -43,8 +41,6 @@ end
 
 describe "Passenger.driver_list" do
   before(:each) do
-    # Setting up variable
-    # Call method being tested
     @passenger = RideShare::Passenger.find(1)
     @driver_list = RideShare::Passenger.driver_list(1)
   end
@@ -55,17 +51,11 @@ describe "Passenger.driver_list" do
 
   it "Returns the list of all previous driver instances." do
     @driver_list.length.must_equal 2
-    # @passengers = all_passenger_trips(1)
-    # all_passenger_trips.driver_trips.length.must_equal 2
-
-    # Undefined method, once again.  Not sure what it is aside from not getting enough breaks to pick out the obvious.  Also, again, via another method I know these are returning and doing what I want, it's a matter of the testing.
   end
 end
 
 describe "passenger_trips" do
   before(:each) do
-    # Setting up variable
-    # Call method being tested
     @passenger = RideShare::Passenger.find(1)
     @passenger_trips = @passenger.passenger_trips(1)
   end
@@ -84,19 +74,3 @@ describe "passenger_trips" do
     @passenger_trips.length.must_equal 2
   end
 end
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# Each passenger should:
-
-# Have an ID, name and phone number
-# Given a passenger object, you should be able to:
-
-# Retrieve the list of trip instances that only this passenger has taken.
-# Retrieve the list of all previous driver instances (through the trips functionality built above).
-
-# You should be able to:
-
-# Retrieve all passengers from the CSV file
-# Find a specific passenger using their numeric ID
