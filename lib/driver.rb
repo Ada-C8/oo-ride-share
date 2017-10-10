@@ -37,7 +37,7 @@ module RideShare
       driver_trips = driver_trips(driver_id)
       return (driver_trips.map(&:rating).inject(0, &:+)/driver_trips.length).round(2)
       # enumerable version
-      
+
       # total = 0.0
       # driver_trips = Trip.all_driver_trips(driver_id)
       # trip_count = driver_trips.length

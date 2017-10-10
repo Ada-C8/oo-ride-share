@@ -1,7 +1,15 @@
 require_relative 'spec_helper'
 
-describe "initialize" do
-
+describe "attr_readers" do
+  before(:each) do
+    # Setting up variable
+    # Call method being tested
+    @trip = RideShare::Trip.all.first
+  end
+  
+  it "Can read the date" do
+    @trip.date.must_equal "2016-04-05"
+  end
 end
 
 describe "Trip.all" do # <= Self.all method, this is what we're testing (remember this).
@@ -60,7 +68,14 @@ describe "Trip.all_passenger_trips" do
 end
 
 describe "driver" do
+  before(:each) do
+    # Setting up variable
+    # Call method being tested
+    @driver = RideShare::Driver.find(1)
+  end
+
   it "returns an instance of a driver." do
+    @driver.must_be_instance_of RideShare::Driver
     # driver = driver(1)
     # trip.driver.must_be_instance_of RideShare::Driver
   end
@@ -69,9 +84,16 @@ end
 # Undefined.
 
 describe "passenger" do
-  it "returns an instance of rider." do
-    # passenger = passenger(1)
-    # trip.passenger.must_be_instance_of RideShare::Passenger
+  before(:each) do
+    # Setting up variable
+    # Call method being tested
+    @passenger = RideShare::Passenger.find(1)
+  end
+
+  it "returns an instance of a passenger." do
+    @passenger.must_be_instance_of RideShare::Passenger
+    # driver = driver(1)
+    # trip.driver.must_be_instance_of RideShare::Driver
   end
 end
 # Undefined
